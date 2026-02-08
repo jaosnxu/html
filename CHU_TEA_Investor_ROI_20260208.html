@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>CHUTEA 投资人回报测算报告</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .header { text-align: center; border-bottom: 3px solid #0056b3; padding-bottom: 20px; margin-bottom: 40px; }
+        .header h1 { margin: 0; color: #0056b3; font-size: 28px; }
+        .header p { color: #666; margin-top: 10px; }
+        
+        .highlight-box { background: #e6f7ff; border-left: 5px solid #1890ff; padding: 20px; margin-bottom: 30px; border-radius: 4px; }
+        .highlight-box h3 { margin-top: 0; color: #0050b3; }
+        
+        .metrics-grid { display: flex; justify-content: space-between; margin-bottom: 40px; gap: 20px; }
+        .metric-card { flex: 1; background: #fafafa; padding: 20px; border-radius: 8px; text-align: center; border: 1px solid #eee; }
+        .metric-card .label { font-size: 14px; color: #888; margin-bottom: 10px; }
+        .metric-card .value { font-size: 24px; font-weight: bold; color: #333; }
+        .metric-card .sub { font-size: 12px; color: #aaa; margin-top: 5px; }
+        
+        .section-title { font-size: 20px; font-weight: bold; border-left: 4px solid #faad14; padding-left: 10px; margin: 40px 0 20px 0; }
+        
+        .chart-container { height: 400px; width: 100%; margin-bottom: 30px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+        th, td { border: 1px solid #eee; padding: 12px; text-align: right; }
+        th { background-color: #fafafa; text-align: center; color: #555; }
+        td:first-child { text-align: left; font-weight: bold; }
+        
+        .footer { text-align: center; font-size: 12px; color: #999; margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CHUTEA 连锁 - 单店投资回报测算报告</h1>
+            <p>Investment Return Analysis (Investor Perspective)</p>
+            <p>模型版本: 岛店 (Island Model) | 测算日期: 2026-02-08</p>
+        </div>
+
+        <div class="highlight-box">
+            <h3>🧮 测算逻辑说明 (Calculation Methodology)</h3>
+            <p>本报告基于以下公式计算投资回报：</p>
+            <ul>
+                <li><strong>1. 经营性现金流 (OCF):</strong> 直接提取自财务模型 <em>CF-Остров</em> 表的 "经营活动现金流净额"。</li>
+                <li><strong>2. 可分配现金 (Distributable):</strong> <code>OCF × (100% - 10% 风险金)</code></li>
+                <li><strong>3. 投资人分红 (Investor Dividend):</strong> <code>可分配现金 × 当前阶段分红比例</code></li>
+            </ul>
+            <p><strong>分红比例阶段 (Phases):</strong></p>
+            <ul>
+                <li><strong>Phase 1 (回本前):</strong> 累计分红 < 本金 ➡ 分红 <strong>70%</strong></li>
+                <li><strong>Phase 2 (增长期):</strong> 本金 < 累计分红 < 2倍本金 ➡ 分红 <strong>65%</strong></li>
+                <li><strong>Phase 3 (超额期):</strong> 累计分红 > 2倍本金 ➡ 分红 <strong>55%</strong></li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <h3>🏦 投资模式：全托管 (Fully Managed)</h3>
+            <p>
+                <strong>回本前 (Phase 1):</strong> 投资者分红比例 <strong>70%</strong> (扣除 10% 风险金后)。<br>
+                <strong>增长期 (Phase 2):</strong> 投资者分红比例 <strong>65%</strong> (1倍 < 累计回报 < 2倍)。<br>
+                <strong>利润期 (Phase 3):</strong> 投资者分红比例 <strong>55%</strong> (累计回报 > 2倍)。
+            </p>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="label">初始总投资 (Total Investment)</div>
+                <div class="value">₽ 5,010,000</div>
+                <div class="sub">一次性投入 (CAPEX)</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">预计回本周期 (Payback Period)</div>
+                <div class="value">> 12 个月</div>
+                <div class="sub">基于保守现金流预测</div>
+            </div>
+            <div class="metric-card">
+                <div class="label">首年投资回报率 (Year 1 ROI)</div>
+                <div class="value">93.8%</div>
+                <div class="sub">现金回报 / 总投资</div>
+            </div>
+        </div>
+
+        <div class="section-title">📊 投资人现金回报节点 (Investor Cash Returns)</div>
+        <p>基于当前模型，投资人将在不同时间节点收到如下现金分红：</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>时间节点 (Timeframe)</th>
+                    <th>累计收到现金 (Cumulative Cash)</th>
+                    <th>占总投资比例 (Recouped %)</th>
+                    <th>状态 (Status)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>前 3 个月 (Month 1-3)</td>
+                    <td>₽ 254,624</td>
+                    <td>5.1%</td>
+                    <td>爬坡期 (Ramp-up)</td>
+                </tr>
+                <tr>
+                    <td>前 6 个月 (Month 1-6)</td>
+                    <td>₽ 2,050,701</td>
+                    <td>40.9%</td>
+                    <td>旺季爆发 (Peak Season)</td>
+                </tr>
+                <tr>
+                    <td>前 12 个月 (Year 1)</td>
+                    <td>₽ 4,698,542</td>
+                    <td>93.8%</td>
+                    <td>当前阶段: P1 (回本期)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="section-title">📈 累计现金流回正曲线 (Payback Curve)</div>
+        <div id="paybackChart" class="chart-container"></div>
+
+        <div class="section-title">💡 CFO 财务点评</div>
+        <ul>
+            <li><strong>现金流结构:</strong> 前3个月为爬坡期，累计回款约 5.1%；第4-8个月为旺季，现金流显著增强。</li>
+            <li><strong>风险提示:</strong> 本模型基于标准运营数据。实际回本周期受商场客流波动影响，建议预留 15% 的资金缓冲。</li>
+            <li><strong>长期收益:</strong> 预计在第 > 12 个月完全回本，之后进入纯利分红阶段。</li>
+        </ul>
+
+        <div class="footer">
+            CHUTEA Financial System | Generated by CFO Bot
+        </div>
+    </div>
+
+    <script>
+        var chart = echarts.init(document.getElementById('paybackChart'));
+        var option = {
+            tooltip: { trigger: 'axis' },
+            legend: { data: ['累计净现金流 (Cumulative Cash)', '投资基准线 (Investment)'] },
+            xAxis: { type: 'category', data: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10', 'M11', 'M12'] },
+            yAxis: { type: 'value', name: '金额 (RUB)' },
+            series: [
+                {
+                    name: '累计净现金流 (Cumulative Cash)',
+                    type: 'line',
+                    data: [13125, 47081, 254624, 614923, 1239075, 2050701, 2792892, 3500366, 4103687, 4498704, 4615982, 4698542],
+                    smooth: true,
+                    areaStyle: { opacity: 0.2 },
+                    itemStyle: { color: '#52c41a' },
+                    markLine: {
+                        data: [{ yAxis: 5010000.0, name: '回本线' }],
+                        itemStyle: { color: '#ff4d4f' }
+                    }
+                }
+            ]
+        };
+        chart.setOption(option);
+    </script>
+</body>
+</html>

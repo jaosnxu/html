@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHU TEA - Investment Vision</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-gold: #f59e0b;
+            --accent-green: #10b981;
+            --accent-blue: #3b82f6;
+            --accent-red: #ef4444;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 600px; /* Mobile-first Waterfall width */
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Typography */
+        h1, h2, h3 { margin: 0; font-weight: 800; }
+        .big-number { font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -2px; }
+        .medium-number { font-size: 32px; font-weight: 700; }
+        .label { font-size: 14px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; }
+        
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue));
+        }
+        
+        /* Hero Section */
+        .hero { text-align: center; padding: 40px 0; }
+        .brand { color: var(--accent-gold); font-size: 24px; letter-spacing: 4px; margin-bottom: 10px; opacity: 0.8; }
+        
+        /* Grid for Metrics */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        
+        /* Table Styles */
+        .table-container { overflow-x: auto; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th { text-align: left; color: var(--text-secondary); padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        tr:last-child td { border-bottom: none; }
+        .num { text-align: right; font-feature-settings: "tnum"; }
+        .highlight-row { background: rgba(245, 158, 11, 0.1); color: var(--accent-gold); font-weight: bold; }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-text { color: var(--accent-gold); }
+        .green-text { color: var(--accent-green); }
+        
+        /* Footer */
+        .footer { text-align: center; padding: 40px; color: var(--text-secondary); font-size: 12px; opacity: 0.5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="hero">
+            <div class="brand">CHU TEA</div>
+            <h1 class="gradient-text" style="font-size: 28px;">ИНВЕСТИЦИОННЫЙ ПРОГНОЗ</h1>
+            <div style="color: var(--text-secondary); margin-top: 5px;">3-Year Financial Vision</div>
+        </div>
+
+        <!-- Main ROI Card -->
+        <div class="card" style="text-align: center; padding: 50px 20px;">
+            <div class="label">Total Return on Investment</div>
+            <div class="big-number green-text">
+                312%
+            </div>
+            <div class="label" style="margin-top: 15px;">Возврат инвестиций (ROI)</div>
+        </div>
+
+        <!-- Key Metrics Grid -->
+        <div class="grid-2">
+            <div class="card" style="text-align: center;">
+                <div class="medium-number gold-text">14</div>
+                <div class="label">Месяцев<br>Окупаемость</div>
+            </div>
+            <div class="card" style="text-align: center;">
+                <div class="medium-number" style="color: var(--accent-blue);">15.6M</div>
+                <div class="label">RUB<br>Доход Инвестора</div>
+            </div>
+        </div>
+
+        <!-- Scenarios -->
+        <div class="card">
+            <h3>Сценарии (Scenarios)</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Сценарий</th>
+                            <th class="num">Инвестор</th>
+                            <th class="num">ROI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr class="">
+                            <td>Пессимистичный </td>
+                            <td class="num">₽ 12,979,202</td>
+                            <td class="num">259%</td>
+                        </tr>
+                        
+                        <tr class="highlight-row">
+                            <td>Базовый </td>
+                            <td class="num">₽ 15,630,268</td>
+                            <td class="num">312%</td>
+                        </tr>
+                        
+                        <tr class="">
+                            <td>Оптимистичный </td>
+                            <td class="num">₽ 18,466,538</td>
+                            <td class="num">369%</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Yearly Chart -->
+        <div class="card">
+            <h3>Динамика (Yearly Trend)</h3>
+            <div id="chart" style="width: 100%; height: 300px; margin-top: 20px;"></div>
+        </div>
+
+        <!-- Monthly Waterfall (First Year) -->
+        <div class="card">
+            <h3>Поток 1-го года (Year 1 Flow)</h3>
+            <div class="table-container" style="max-height: 400px; overflow-y: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Мес</th>
+                            <th class="num">Выручка</th>
+                            <th class="num">Поток (OCF)</th>
+                            <th class="num">Инвестор</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>1</td>
+                            <td class="num">1,053,000</td>
+                            <td class="num" style="color: var(--text-secondary);">20,834</td>
+                            <td class="num gold-text">13,125</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>2</td>
+                            <td class="num">1,105,650</td>
+                            <td class="num" style="color: var(--text-secondary);">53,898</td>
+                            <td class="num gold-text">33,956</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>3</td>
+                            <td class="num">1,544,400</td>
+                            <td class="num" style="color: var(--text-secondary);">329,433</td>
+                            <td class="num gold-text">207,543</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>4</td>
+                            <td class="num">1,930,500</td>
+                            <td class="num" style="color: var(--text-secondary);">571,904</td>
+                            <td class="num gold-text">360,300</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>5</td>
+                            <td class="num">2,597,400</td>
+                            <td class="num" style="color: var(--text-secondary);">990,717</td>
+                            <td class="num gold-text">624,152</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>6</td>
+                            <td class="num">3,071,250</td>
+                            <td class="num" style="color: var(--text-secondary);">1,288,295</td>
+                            <td class="num gold-text">811,626</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>7</td>
+                            <td class="num">2,895,750</td>
+                            <td class="num" style="color: var(--text-secondary);">1,178,081</td>
+                            <td class="num gold-text">742,191</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>8</td>
+                            <td class="num">2,808,000</td>
+                            <td class="num" style="color: var(--text-secondary);">1,122,974</td>
+                            <td class="num gold-text">707,474</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>9</td>
+                            <td class="num">2,544,750</td>
+                            <td class="num" style="color: var(--text-secondary);">957,653</td>
+                            <td class="num gold-text">603,321</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>10</td>
+                            <td class="num">2,018,250</td>
+                            <td class="num" style="color: var(--text-secondary);">627,011</td>
+                            <td class="num gold-text">395,017</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>11</td>
+                            <td class="num">1,316,250</td>
+                            <td class="num" style="color: var(--text-secondary);">186,155</td>
+                            <td class="num gold-text">117,278</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>12</td>
+                            <td class="num">1,228,500</td>
+                            <td class="num" style="color: var(--text-secondary);">131,048</td>
+                            <td class="num gold-text">82,560</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div style="text-align: center; margin-top: 15px; font-size: 12px; color: var(--text-secondary);">
+                * Полная детализация доступна в Excel
+            </div>
+        </div>
+
+        <div class="footer">
+            CHU TEA FINANCIAL PLANNING<br>
+            CONFIDENTIAL
+        </div>
+    </div>
+
+    <script>
+        var chart = echarts.init(document.getElementById('chart'));
+        var option = {
+            backgroundColor: 'transparent',
+            grid: { top: 30, bottom: 20, left: 0, right: 0, containLabel: true },
+            tooltip: { trigger: 'axis', backgroundColor: 'rgba(30, 41, 59, 0.9)', borderColor: '#334155', textStyle: { color: '#f8fafc' } },
+            xAxis: { type: 'category', data: ['Y1', 'Y2', 'Y3'], axisLine: { lineStyle: { color: '#475569' } }, axisLabel: { color: '#94a3b8' } },
+            yAxis: { type: 'value', splitLine: { lineStyle: { color: '#334155', type: 'dashed' } }, axisLabel: { show: false } },
+            series: [
+                { name: 'Инвестор', type: 'bar', stack: 'total', data: [4698542.268000001, 5565146.4180000005, 5366578.833000001], itemStyle: { color: '#10b981', borderRadius: [0, 0, 4, 4] } },
+                { name: 'Компания', type: 'bar', stack: 'total', data: [1208196.5832000005, 1801175.0651999994, 2634502.3362], itemStyle: { color: '#3b82f6', borderRadius: [0, 0, 0, 0] } },
+                { name: 'Команда', type: 'bar', stack: 'total', data: [805464.3888000001, 1200783.3768000002, 1756334.8908000002], itemStyle: { color: '#f59e0b', borderRadius: [4, 4, 0, 0] } }
+            ]
+        };
+        chart.setOption(option);
+        window.addEventListener('resize', function() { chart.resize(); });
+    </script>
+</body>
+</html>
