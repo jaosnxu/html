@@ -149,17 +149,17 @@
         <!-- KPI Cards -->
         <div class="kpi-grid">
             <div class="kpi-card">
-                <div class="kpi-label">投资回报率 (ROI)</div>
+                <div class="kpi-label">ROI</div>
                 <div class="kpi-value highlight">312%</div>
                 <div class="kpi-label">Base Scenario</div>
             </div>
             <div class="kpi-card">
-                <div class="kpi-label">预计回本周期 (Payback)</div>
+                <div class="kpi-label">Payback Period</div>
                 <div class="kpi-value">14 <span style="font-size:1rem">мес.</span></div>
-                <div class="kpi-label">Окупаемость</div>
+                <div class="kpi-label">Payback</div>
             </div>
             <div class="kpi-card">
-                <div class="kpi-label">投资人总收益 (Investor Cash)</div>
+                <div class="kpi-label">Investor Cash</div>
                 <div class="kpi-value">₽15.6M</div>
                 <div class="kpi-label">Cumulative (3 Years)</div>
             </div>
@@ -209,16 +209,57 @@
             </tbody>
         </table>
 
+        <!-- Milestone Returns -->
+        <div class="section-title">Milestone Investor Returns</div>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th style="text-align:left">Scenario</th>
+                    <th>3M</th>
+                    <th>6M</th>
+                    <th>1Y</th>
+                    <th>3Y</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>Пессимистичный </td>
+                    <td>₽ 203,699</td>
+                    <td>₽ 1,640,561</td>
+                    <td>₽ 3,758,834</td>
+                    <td>₽ 12,979,202</td>
+                </tr>
+                
+                <tr>
+                    <td>Базовый </td>
+                    <td>₽ 254,624</td>
+                    <td>₽ 2,050,701</td>
+                    <td>₽ 4,698,542</td>
+                    <td>₽ 15,630,268</td>
+                </tr>
+                
+                <tr>
+                    <td>Оптимистичный </td>
+                    <td>₽ 305,549</td>
+                    <td>₽ 2,460,842</td>
+                    <td>₽ 5,621,122</td>
+                    <td>₽ 18,466,538</td>
+                </tr>
+                
+            </tbody>
+        </table>
+
         <!-- Yearly Chart -->
         <div class="section-title">Динамика (Yearly Trend)</div>
         <div id="mainChart" class="chart-container"></div>
 
         <!-- Monthly Detail (Year 1) -->
-        <div class="section-title">Поток 1-го года (Year 1 Flow)</div>
+        <div class="section-title">Year 1 Cash Flow</div>
         <table class="data-table">
             <thead>
                 <tr>
-                    <th style="text-align:left">Мес</th>
+                    <th style="text-align:left">Month</th>
                     <th>Выручка</th>
                     <th>Поток (OCF)</th>
                     <th>Инвестор</th>
