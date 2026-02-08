@@ -1,0 +1,432 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHU TEA | Инвестиционный Прогноз</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #111827;
+            --text-sub: #6b7280;
+            --accent: #d97706;
+            --success: #10b981;
+            --border: #e5e7eb;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-color); color: var(--text-main); margin: 0; padding: 40px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .header { text-align: center; margin-bottom: 60px; }
+        .header h1 { font-size: 3rem; margin: 0; letter-spacing: -0.05em; color: var(--text-main); }
+        .header p { color: var(--text-sub); font-size: 1.2rem; margin-top: 10px; }
+        
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 50px; }
+        
+        .card { border: 1px solid var(--border); border-radius: 12px; padding: 25px; text-align: center; transition: all 0.2s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); border-color: var(--accent); }
+        
+        .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 15px; color: var(--text-sub); }
+        .card-value { font-size: 2.5rem; font-weight: 700; color: var(--text-main); margin: 10px 0; }
+        .card-value.green { color: var(--success); }
+        .card-sub { font-size: 0.9rem; color: var(--text-sub); }
+        
+        .section-title { font-size: 1.5rem; font-weight: 700; margin: 60px 0 30px; border-left: 5px solid var(--accent); padding-left: 20px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-bottom: 40px; font-size: 0.95rem; }
+        th, td { padding: 15px; text-align: right; border-bottom: 1px solid var(--border); }
+        th { text-align: center; background: #f9fafb; font-weight: 600; color: var(--text-sub); }
+        td:first-child { text-align: left; font-weight: 500; color: var(--text-main); }
+        
+        .chart-box { height: 400px; border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        
+        .footer { text-align: center; color: var(--text-sub); margin-top: 80px; font-size: 0.8rem; border-top: 1px solid var(--border); padding-top: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CHU TEA</h1>
+            <p>Финансовая модель (3 сценария)</p>
+        </div>
+
+        <!-- Top Level Summary -->
+        <div class="grid-3">
+            
+            <div class="card">
+                <div class="card-title">Остров (Island)</div>
+                
+                <!-- Investor Payback -->
+                <div style="margin-top:10px;">
+                    <div style="font-size:2.5rem; font-weight:700; color:var(--accent)">
+                         11 <span style="font-size:1rem; color:#6b7280">мес.</span>
+                    </div>
+                    <div class="card-sub" style="font-weight:bold">Окупаемость Инвестора</div>
+                </div>
+
+                <!-- Project Payback -->
+                <div style="margin-top:15px; border-top:1px solid #e5e7eb; padding-top:15px">
+                     <div style="font-size:1.5rem; font-weight:600; color:var(--text-main)">
+                         8 <span style="font-size:0.9rem; color:#6b7280">мес.</span>
+                    </div>
+                    <div class="card-sub">Окупаемость Проекта (Вся компания)</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">ТЦ (Mall)</div>
+                
+                <!-- Investor Payback -->
+                <div style="margin-top:10px;">
+                    <div style="font-size:2.5rem; font-weight:700; color:var(--accent)">
+                         17 <span style="font-size:1rem; color:#6b7280">мес.</span>
+                    </div>
+                    <div class="card-sub" style="font-weight:bold">Окупаемость Инвестора</div>
+                </div>
+
+                <!-- Project Payback -->
+                <div style="margin-top:15px; border-top:1px solid #e5e7eb; padding-top:15px">
+                     <div style="font-size:1.5rem; font-weight:600; color:var(--text-main)">
+                         10 <span style="font-size:0.9rem; color:#6b7280">мес.</span>
+                    </div>
+                    <div class="card-sub">Окупаемость Проекта (Вся компания)</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Стрит (Street)</div>
+                
+                <!-- Investor Payback -->
+                <div style="margin-top:10px;">
+                    <div style="font-size:2.5rem; font-weight:700; color:var(--accent)">
+                         17 <span style="font-size:1rem; color:#6b7280">мес.</span>
+                    </div>
+                    <div class="card-sub" style="font-weight:bold">Окупаемость Инвестора</div>
+                </div>
+
+                <!-- Project Payback -->
+                <div style="margin-top:15px; border-top:1px solid #e5e7eb; padding-top:15px">
+                     <div style="font-size:1.5rem; font-weight:600; color:var(--text-main)">
+                         10 <span style="font-size:0.9rem; color:#6b7280">мес.</span>
+                    </div>
+                    <div class="card-sub">Окупаемость Проекта (Вся компания)</div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Detailed Milestone Table -->
+        <div class="section-title">Инвестиционные Выплаты (Investor Cash Received)</div>
+        <p style="color:var(--text-sub); margin-bottom:20px">Накопленный доход инвестора (на руки) на ключевых этапах.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align:left">Модель / Этап</th>
+                    <th>3 Месяца</th>
+                    <th>6 Месяцев</th>
+                    <th>1 Год</th>
+                    <th>3 Года</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr style="background:#f3f4f6"><td colspan="5" style="font-weight:bold; text-align:center">Остров (Island)</td></tr>
+                
+                <tr>
+                    <td><span style="font-weight:bold; color:var(--success)">Доход Инвестора</span></td>
+                    <td style="color:var(--success); font-weight:bold">₽ 282,916</td>
+                    <td style="color:var(--success); font-weight:bold">₽ 2,278,557</td>
+                    <td style="color:var(--success); font-weight:bold">₽ 5,214,050</td>
+                    <td style="color:var(--success); font-weight:bold">₽ 17,220,251</td>
+                </tr>
+                <tr>
+                    <td style="font-size:0.9em; color:#6b7280">Доход Компании (Head Office)</td>
+                    <td style="color:#6b7280">₽ 60,625</td>
+                    <td style="color:#6b7280">₽ 488,262</td>
+                    <td style="color:#6b7280">₽ 1,114,769</td>
+                    <td style="color:#6b7280">₽ 3,066,769</td>
+                </tr>
+                 <tr>
+                    <td style="font-size:0.9em; color:#6b7280">Доход Партнера (Op Team)</td>
+                    <td style="color:#6b7280">₽ 60,625</td>
+                    <td style="color:#6b7280">₽ 488,262</td>
+                    <td style="color:#6b7280">₽ 1,129,184</td>
+                    <td style="color:#6b7280">₽ 7,531,563</td>
+                </tr>
+                
+                <tr style="background:#f3f4f6"><td colspan="5" style="font-weight:bold; text-align:center">ТЦ (Mall)</td></tr>
+                
+                <tr>
+                    <td><span style="font-weight:bold; color:var(--success)">Доход Инвестора</span></td>
+                    <td style="color:var(--success); font-weight:bold">₽ 57,016</td>
+                    <td style="color:var(--success); font-weight:bold">₽ 1,958,505</td>
+                    <td style="color:var(--success); font-weight:bold">₽ 4,631,537</td>
+                    <td style="color:var(--success); font-weight:bold">₽ 16,624,183</td>
+                </tr>
+                <tr>
+                    <td style="font-size:0.9em; color:#6b7280">Доход Компании (Head Office)</td>
+                    <td style="color:#6b7280">₽ 12,218</td>
+                    <td style="color:#6b7280">₽ 419,680</td>
+                    <td style="color:#6b7280">₽ 992,472</td>
+                    <td style="color:#6b7280">₽ 3,141,652</td>
+                </tr>
+                 <tr>
+                    <td style="font-size:0.9em; color:#6b7280">Доход Партнера (Op Team)</td>
+                    <td style="color:#6b7280">₽ 12,218</td>
+                    <td style="color:#6b7280">₽ 419,680</td>
+                    <td style="color:#6b7280">₽ 992,472</td>
+                    <td style="color:#6b7280">₽ 5,946,992</td>
+                </tr>
+                
+                <tr style="background:#f3f4f6"><td colspan="5" style="font-weight:bold; text-align:center">Стрит (Street)</td></tr>
+                
+                <tr>
+                    <td><span style="font-weight:bold; color:var(--success)">Доход Инвестора</span></td>
+                    <td style="color:var(--success); font-weight:bold">₽ 70,920</td>
+                    <td style="color:var(--success); font-weight:bold">₽ 1,898,202</td>
+                    <td style="color:var(--success); font-weight:bold">₽ 4,476,796</td>
+                    <td style="color:var(--success); font-weight:bold">₽ 16,017,294</td>
+                </tr>
+                <tr>
+                    <td style="font-size:0.9em; color:#6b7280">Доход Компании (Head Office)</td>
+                    <td style="color:#6b7280">₽ 15,197</td>
+                    <td style="color:#6b7280">₽ 406,758</td>
+                    <td style="color:#6b7280">₽ 959,313</td>
+                    <td style="color:#6b7280">₽ 3,027,917</td>
+                </tr>
+                 <tr>
+                    <td style="font-size:0.9em; color:#6b7280">Доход Партнера (Op Team)</td>
+                    <td style="color:#6b7280">₽ 15,197</td>
+                    <td style="color:#6b7280">₽ 406,758</td>
+                    <td style="color:#6b7280">₽ 959,313</td>
+                    <td style="color:#6b7280">₽ 5,724,344</td>
+                </tr>
+                
+            </tbody>
+        </table>
+
+        
+<div class="section-title">Q&A — Финансовые вопросы и ответы</div>
+<p style="color:var(--text-sub); margin-bottom:20px">
+  Дата генерации: 2026-02-08 21:23 • Версия: QA-RU 2026-02-08 21:23
+</p>
+
+<div style="border: 1px solid var(--border); border-radius: 12px; padding: 20px; background: #f9fafb; margin-bottom: 30px;">
+  <div style="font-weight:700; margin-bottom:10px;">Коротко</div>
+  <div style="color:var(--text-sub); line-height:1.6;">
+    Этот раздел отвечает на типовые вопросы инвестора: от источников данных и определения метрик до логики распределения, налогов и рисков.
+    Все суммы “на руки” — это накопленный денежный поток, распределённый инвестору по правилам P1/P2/P3.
+  </div>
+</div>
+
+
+  <div style="margin-top: 30px; font-size: 1.15rem; font-weight: 700; color: var(--text-main);">1. Источник данных и структура модели</div>
+  <div style="margin-top: 10px;">
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Какие сценарии представлены в отчёте?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: В отчёте представлены 3 сценария: Остров (Island); ТЦ (Mall); Стрит (Street). Они соответствуют форматам точки (остров / корнер в ТЦ / стрит).</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Откуда берутся финансовые данные?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Данные берутся из Excel-модели: P&L и Cash Flow. В расчётах распределения используется OCF (операционный денежный поток) из листа Cash Flow. Если в Excel допущены нули/ошибки по аренде или ФОТ — итоговые цифры по окупаемости и выплатам будут завышены.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Какая валюта и период отчёта?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Валюта: RUB. Горизонт модели: 36 месяцев. Ключевые срезы: 3/6/12/36 месяцев.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Что считается “прибылью проекта” в этом отчёте?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: В этом отчёте под “денежным результатом проекта” подразумевается OCF — денежный поток от операционной деятельности. Это не равно бухгалтерской прибыли.</div>
+      </div>
+    
+  </div>
+
+  <div style="margin-top: 30px; font-size: 1.15rem; font-weight: 700; color: var(--text-main);">2. Определения метрик (что именно мы измеряем)</div>
+  <div style="margin-top: 10px;">
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Что такое OCF и почему именно он используется для выплат?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: OCF — это деньги, которые бизнес генерирует операционно (после операционных расходов и налогов, с учётом оборотного капитала; амортизация как не-денежная статья обычно увеличивает OCF относительно чистой прибыли). Выплаты “на руки” возможны только из денег, поэтому базой выбран OCF.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Чем OCF отличается от чистой прибыли в P&L?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Чистая прибыль — бухгалтерский показатель. OCF — денежный. Разница возникает из‑за амортизации, изменений запасов/дебиторки/кредиторки, предоплат, а также разного момента признания доходов/расходов.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Что означает “Окупаемость инвестора”?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Это месяц, когда накопленные выплаты инвестору (денежные, “на руки”) достигают суммы первоначальных инвестиций по сценарию.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Что означает “Окупаемость проекта”?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Это месяц, когда накопленный OCF проекта достигает первоначальных инвестиций. Это показатель окупаемости бизнеса в целом, без учёта распределения между сторонами.</div>
+      </div>
+    
+  </div>
+
+  <div style="margin-top: 30px; font-size: 1.15rem; font-weight: 700; color: var(--text-main);">3. Инвестиции (CAPEX) и что входит в сумму вложений</div>
+  <div style="margin-top: 10px;">
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Какой объём инвестиций по каждому сценарию?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Остров (Island): ₽ 5,010,000<br/>ТЦ (Mall): ₽ 6,390,000<br/>Стрит (Street): ₽ 6,190,000</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Что включает “первоначальные инвестиции”?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Как правило: ремонт/строительно‑монтажные работы, оборудование и мебель, вывеска/брендинг, POS/касса, открытие и запуск, депозит по аренде (если предусмотрен), стартовый запас. Точный состав зависит от Excel-модели и должен подтверждаться сметой/договорами.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Есть ли повторный CAPEX после открытия?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Если в Excel предусмотрены обновления/замены оборудования или расширение — это отражается отдельными строками в Cash Flow. При отсутствии таких строк модель может завышать свободный денежный поток.</div>
+      </div>
+    
+  </div>
+
+  <div style="margin-top: 30px; font-size: 1.15rem; font-weight: 700; color: var(--text-main);">4. Механика распределения и почему цифры инвестора не равны “70% от года”</div>
+  <div style="margin-top: 10px;">
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Как распределяется денежный поток между сторонами?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Денежный поток делится между: Инвестор / Head Office (компания) / Op Team (операционная команда). Доли зависят от стадии (P1/P2/P3).</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Какие доли P1/P2/P3 применяются?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: P1 (до возврата инвестиций): Инвестор 70%, Head Office 15%, Op Team 15%. P2 (между 1× и 2× возврата инвестиций инвестору): Инвестор 65%, Head Office 12%, Op Team 23%. P3 (после 2×): Инвестор 55%, Head Office 8%, Op Team 37%.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Что означает выплата инвестору “на руки за 1 год” в таблице?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Это накопленная сумма денежных выплат инвестору за 12 месяцев. По сценариям: <br/>Остров (Island): ₽ 5,214,050<br/>ТЦ (Mall): ₽ 4,631,537<br/>Стрит (Street): ₽ 4,476,796</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Почему “1 год инвестору” не равен “годовой OCF × 70%”?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Потому что 70% действует только в P1. Как только инвестор возвращает сумму инвестиций, модель переходит в P2 (65%), далее в P3 (55%). Поэтому средняя доля инвестора за 12 месяцев может быть ниже 70%.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Почему в 3/6 месяцев Head Office = Op Team, а в 12/36 месяцев уже нет?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Потому что в P1 доли Head Office и Op Team равны (15% и 15%). В P2/P3 они разные, поэтому накопленные суммы начинают расходиться.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Учитывается ли “резерв риска” как вычет из выплат?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: В текущей версии отчёта резерв риска не удерживается из базы распределения (ставка 0%). Если будет принято решение удерживать резерв — это изменит выплаты инвестору и сроки окупаемости.</div>
+      </div>
+    
+  </div>
+
+  <div style="margin-top: 30px; font-size: 1.15rem; font-weight: 700; color: var(--text-main);">5. Окупаемость, чувствительность и контроль качества данных</div>
+  <div style="margin-top: 10px;">
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Какая окупаемость по сценариям?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Остров (Island): инвестор 11 мес., проект 8 мес.<br/>ТЦ (Mall): инвестор 17 мес., проект 10 мес.<br/>Стрит (Street): инвестор 17 мес., проект 10 мес.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Какие параметры сильнее всего влияют на окупаемость?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Выручка (трафик/конверсия/средний чек), валовая маржа (сырьё/упаковка), аренда, ФОТ и налоги. Ошибки именно по этим статьям чаще всего приводят к некорректной окупаемости.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Какие типовые ошибки Excel-моделей нужно проверить в первую очередь?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Нулевые/заниженные аренда и ФОТ, некорректная ставка налога, отсутствие сезонности, пропущенные капвложения (CAPEX), неверная логика оборотного капитала, отрицательный OCF в месяцы запуска без правила “не распределять убыток”.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Что будет, если в отдельные месяцы OCF отрицательный?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: В этой модели отрицательный OCF математически приводит к отрицательным “выплатам” в том месяце. На практике обычно вводят правило: при отрицательном OCF выплаты = 0, а дефицит покрывается резервом/кассой. Это правило должно быть отдельно согласовано и закреплено в договоре.</div>
+      </div>
+    
+  </div>
+
+  <div style="margin-top: 30px; font-size: 1.15rem; font-weight: 700; color: var(--text-main);">6. Налоги и юридические вопросы (для инвестора)</div>
+  <div style="margin-top: 10px;">
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Включены ли налоги в расчёты денежного потока?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Налоги учитываются настолько, насколько они отражены в исходной Excel-модели Cash Flow / P&L. Для инвестиционного решения необходимо подтвердить применяемый налоговый режим (УСН/ОСНО), НДС, страховые взносы и прочие обязательные платежи.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Что именно покупает инвестор — долю, займ или участие в прибыли?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Это не определяется автоматически отчётом. Финансовая модель показывает денежные потоки и схему распределения; юридическая конструкция (доля/займ/концессия) должна быть закреплена договором, где также фиксируются права контроля, график отчётности, порядок выплат и действия при отклонениях.</div>
+      </div>
+    
+      <div style="padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; margin: 10px 0; background: #ffffff;">
+        <div style="font-weight: 700; margin-bottom: 8px;">Вопрос: Есть ли гарантии доходности?</div>
+        <div style="color: var(--text-main); line-height: 1.65;">Ответ: Нет. Это прогноз на основе модели. Фактический результат зависит от исполнения, рынка, аренды, персонала и качества операционного управления.</div>
+      </div>
+    
+  </div>
+
+
+        <!-- Charts -->
+        <div class="section-title">График окупаемости (Payback Dynamics)</div>
+        <div id="mainChart" class="chart-box"></div>
+
+        <div class="footer">
+            <p>Generated by CHU TEA AI CFO • Confidential</p>
+        </div>
+    </div>
+
+    <script>
+        var chartDom = document.getElementById('mainChart');
+        var myChart = echarts.init(chartDom);
+        var option = {
+            tooltip: { trigger: 'axis' },
+            legend: { bottom: 0 },
+            grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
+            xAxis: { type: 'category', data: Array.from({length: 36}, (_, i) => i + 1) },
+            yAxis: { type: 'value', name: 'Рубли' },
+            series: [
+                
+                {
+                    name: 'Остров (Island)',
+                    type: 'line',
+                    smooth: true,
+                    data: [14583.8, 37728.74, 230603.24, 400332.8, 693502.0399999999, 901806.5, 824656.7, 786081.7999999999, 670357.1, 438907.69999999995, 130308.49999999999, 85181.2, 121000.75, 214131.58000000002, 321590.23000000004, 479196.25, 765752.65, 944850.4, 837391.75, 837391.75, 729933.1, 435782.60000000003, 193311.80000000002, 163002.95, 193311.80000000002, 241805.96000000002, 332732.51, 466091.45, 708562.25, 860106.5000000001, 769179.9500000001, 738871.1000000001, 678253.4, 496400.30000000005, 253929.50000000003, 223620.65000000002],
+                    markLine: {
+                        data: [{ yAxis: 5010000.0, label: { formatter: 'Inv' } }]
+                    }
+                },
+                
+                {
+                    name: 'ТЦ (Mall)',
+                    type: 'line',
+                    smooth: true,
+                    data: [-66848.59999999999, -41923.28, 165787.72, 348573.39999999997, 664294.12, 888622.0, 805537.6, 763995.3999999999, 639368.7999999999, 390115.6, 57777.99999999999, 16235.8, 57777.99999999999, 165787.72, 290414.31999999995, 473199.99999999994, 805537.6, 940873.7000000001, 825149.0, 825149.0, 709424.3, 477974.9, 169375.7, 130800.8, 169375.7, 231095.53999999998, 346820.24, 516549.80000000005, 825149.0, 1018023.5, 763483.6000000001, 730843.3, 665562.7000000001, 469720.9, 208598.50000000003, 175958.2],
+                    markLine: {
+                        data: [{ yAxis: 6390000.0, label: { formatter: 'Inv' } }]
+                    }
+                },
+                
+                {
+                    name: 'Стрит (Street)',
+                    type: 'line',
+                    smooth: true,
+                    data: [-58112.6, -34377.979999999996, 163410.52, 337464.39999999997, 638102.9199999999, 851714.5, 772599.1, 733041.3999999999, 614368.2999999999, 377022.1, 60560.49999999999, 21002.8, 60560.49999999999, 163410.52, 282083.61999999994, 456137.5, 772599.1, 901074.2000000001, 790877.75, 790877.75, 680681.3, 460288.4, 166431.2, 129699.05, 166431.2, 225202.63999999998, 335399.08999999997, 497020.55, 790877.75, 974538.5, 731366.3500000001, 700285.3, 638123.2000000001, 451636.9, 202988.50000000003, 171907.45],
+                    markLine: {
+                        data: [{ yAxis: 6190000.0, label: { formatter: 'Inv' } }]
+                    }
+                },
+                
+            ]
+        };
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
