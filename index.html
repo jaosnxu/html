@@ -1,1 +1,148 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>CHU TEA Reports</title></head><body><h1>Reports</h1><ul><li><a href="CHU_TEA_3Year_Projection_20260208_QA_RU.docx">CHU_TEA_3Year_Projection_20260208_QA_RU.docx</a></li><li><a href="CHU_TEA_3Year_Projection_20260208.docx">CHU_TEA_3Year_Projection_20260208.docx</a></li><li><a href="CHU_TEA_3Year_Projection_20260208_QA_RU.html">CHU_TEA_3Year_Projection_20260208_QA_RU.html</a></li><li><a href="CHU_TEA_3Year_Projection_20260208.html">CHU_TEA_3Year_Projection_20260208.html</a></li><li><a href="CHU_TEA_Infographic_20260208.png">CHU_TEA_Infographic_20260208.png</a></li><li><a href="CHU_TEA_3Year_Projection_20260208.pdf">CHU_TEA_3Year_Projection_20260208.pdf</a></li></ul></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHU TEA | 投资人预测与回款</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111827;
+      --sub: #6b7280;
+      --border: #e5e7eb;
+      --accent: #d97706;
+      --card: #f9fafb;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 40px 16px;
+    }
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      margin: 24px 0 28px;
+    }
+    h1 {
+      font-size: 2.4rem;
+      margin: 0;
+      letter-spacing: -0.04em;
+    }
+    .subtitle {
+      margin-top: 10px;
+      color: var(--sub);
+      font-size: 1.05rem;
+      line-height: 1.5;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--card);
+      padding: 18px;
+    }
+    .card h2 {
+      font-size: 1.05rem;
+      margin: 0;
+    }
+    .card p {
+      margin: 10px 0 0;
+      color: var(--sub);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    a.btn.primary {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+    a.btn:hover {
+      filter: brightness(0.98);
+    }
+    .note {
+      margin-top: 18px;
+      color: var(--sub);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .footer {
+      margin-top: 34px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--sub);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>CHU TEA 投资人预测与回款</h1>
+      <div class="subtitle">
+        建议优先打开 PDF（跨设备最稳定）；如需交互图表再打开 HTML。
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>三年预测（HTML，含图表交互）</h2>
+        <p>可查看三模型ROI、阶段回款表，以及按月回款曲线（含1个月列与37个月曲线）。</p>
+        <div class="actions">
+          <a class="btn primary" href="./CHU_TEA_3Year_Projection_20260208.html">打开 HTML</a>
+          <a class="btn" href="./CHU_TEA_3Year_Projection_20260208.pdf">下载 PDF</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>说明版（QA RU）</h2>
+        <p>包含俄语版本的问答/说明（如你需要对外解释口径可用）。</p>
+        <div class="actions">
+          <a class="btn" href="./CHU_TEA_3Year_Projection_20260208_QA_RU.html">打开 QA RU</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      若页面图表无法加载，通常是网络限制导致无法访问 jsdelivr（ECharts CDN）。此时请使用 PDF 版本。
+    </div>
+
+    <div class="footer">
+      CHU TEA • Confidential
+    </div>
+  </div>
+</body>
+</html>
